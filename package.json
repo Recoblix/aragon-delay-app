@@ -1,0 +1,21 @@
+{
+  "name": "Delay",
+  "version": "1.0.0",
+  "dependencies": {
+    "@aragon/client": "^1.0.0-beta.7",
+    "@aragon/os": "^3.1.3"
+  },
+  "devDependencies": {
+    "@aragon/cli": "^2.2.0",
+    "truffle": "^4.1.7"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "build": "truffle compile",
+    "start": "aragon run",
+    "deploy": "truffle exec scripts/deploy.js --network rpc",
+    "publish": "aragon publish \"$(npm run deploy | tail -n 1)\""
+  },
+  "keywords": [],
+  "license": "GPL-3.0"
+}

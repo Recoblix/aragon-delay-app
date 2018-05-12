@@ -1,0 +1,8 @@
+{
+  "name": "Delay",
+  "description": "Forwards an evm script after a delay",
+  "icons": [{
+    "src": "images/icon.png",
+    "sizes": "192x192"
+  }]
+}
