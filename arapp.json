@@ -1,5 +1,5 @@
 {
-  "appName": "delay2.open.aragonpm.eth",
+  "appName": "delay6.aragonpm.eth",
   "version": "1.0.0",
   "roles": [
     { "name": "Initiate actions", "id": "INITIATE_ROLE", "params": []},

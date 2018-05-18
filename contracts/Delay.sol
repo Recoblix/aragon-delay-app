@@ -19,8 +19,8 @@ contract Delay is AragonApp {
 
   Action[] actions;
 
-  event StartAction(uint256 indexed voteId);
-  event ExecuteAction(uint256 indexed voteId);
+  event StartAction(uint256 indexed actionId);
+  event ExecuteAction(uint256 indexed actionId);
 
   bytes32 constant public INITIATE_ROLE = keccak256("INITIATE_ROLE");
   bytes32 constant public ACTIVATE_ROLE = keccak256("ACTIVATE_ROLE");
