@@ -4,27 +4,24 @@ import "@aragon/os/contracts/apps/AragonApp.sol";
 
 
 contract Delay is AragonApp {
-
-
-
 	uint256 public delay;
-
 
   struct Action {
       address creator;
-      uint256 snapshotBlock;
+      uint256 activeBlock;
       bytes executionScript;
       bool executed;
+      bool canceled;
   }
 
-  Action[] actions;
+  Action[] public actions;
 
   event StartAction(uint256 indexed actionId);
   event ExecuteAction(uint256 indexed actionId);
 
   bytes32 constant public INITIATE_ROLE = keccak256("INITIATE_ROLE");
   bytes32 constant public ACTIVATE_ROLE = keccak256("ACTIVATE_ROLE");
-
+  bytes32 constant public CANCEL_ROLE = keccak256("CANCEL_ROLE");
 
 	function initialize(
 			uint256 _delay
@@ -32,6 +29,35 @@ contract Delay is AragonApp {
 	{
 		initialized();
 		delay = _delay;
+	}
+
+  /**
+  * @notice Execute the result of action #`_actionId`
+  * @param _actionId Id for action
+  */
+  function activate(uint256 _actionId) auth(ACTIVATE_ROLE) public {
+      Action storage action = actions[_actionId];
+			require(action.executed == false);
+			require(action.canceled == false);
+			require(action.activeBlock < getBlockNumber());
+
+			action.executed = true;
+
+      bytes memory input = new bytes(0); // TODO: Consider input for voting scripts
+      runScript(action.executionScript, input, new address[](0));
+
+      emit ExecuteAction(_actionId);
+  }
+
+  /**
+  * @notice Cancel the action #`_actionId`
+  * @param _actionId Id for action
+  */
+  function cancel(uint256 _actionId) auth(CANCEL_ROLE) public {
+      Action storage action = actions[_actionId];
+			require(action.executed == false);
+			require(action.canceled == false);
+			action.canceled = true;
 	}
 
   /**
@@ -43,30 +69,9 @@ contract Delay is AragonApp {
       uint256 actionId = actions.length++;
       Action storage action = actions[actionId];
       action.executionScript = _evmScript;
-      action.snapshotBlock = getBlockNumber();
+      action.activeBlock = getBlockNumber() + delay;
 
       emit StartAction(actionId);
-  }
-
-  /**
-  * @notice Execute the result of action #`_actionId`
-  * @param _actionId Id for action
-  */
-  function activate(uint256 _actionId) auth(ACTIVATE_ROLE) public {
-
-      Action storage action = actions[_actionId];
-			require(action.executed == false);
-      action.executed = true;
-
-			require(action.snapshotBlock + delay < getBlockNumber());
-
-
-
-
-      bytes memory input = new bytes(0); // TODO: Consider input for voting scripts
-      runScript(action.executionScript, input, new address[](0));
-
-      emit ExecuteAction(_actionId);
   }
 
   function isForwarder() public pure returns (bool) {
@@ -76,6 +81,5 @@ contract Delay is AragonApp {
   function canForward(address _sender, bytes _evmCallScript) public view returns (bool) {
       return canPerform(_sender, INITIATE_ROLE, arr());
   }
-
 
 }

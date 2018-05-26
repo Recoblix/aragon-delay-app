@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@aragon/apm@^1.0.0-beta.8", "@aragon/apm@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@aragon/apm/-/apm-1.1.1.tgz#fcbe31286156939c5b9e6fb78a17e700fb630c0a"
+"@aragon/apm@^1.0.0-beta.8", "@aragon/apm@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@aragon/apm/-/apm-1.1.2.tgz#6b20738c11ab4d912d42752da3de3136ee794d1a"
   dependencies:
     "@aragon/os" "^3.1.2"
     ethjs-ens "^2.0.1"
@@ -48,10 +48,10 @@
   resolved "https://registry.yarnpkg.com/@aragon/aragen/-/aragen-1.0.2.tgz#f14b37191cf57c3473957c6c6295086c241d7bde"
 
 "@aragon/cli@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@aragon/cli/-/cli-4.0.0.tgz#fb451b914c4de847a748c580652026c1e5d1c808"
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@aragon/cli/-/cli-4.0.4.tgz#c01c96e3e7098dc731eda1b6a6851d88e40d15cb"
   dependencies:
-    "@aragon/apm" "^1.1.1"
+    "@aragon/apm" "^1.1.2"
     "@aragon/apps-finance" "^1.0.1"
     "@aragon/apps-token-manager" "^1.0.0"
     "@aragon/apps-vault" "^2.0.1"
@@ -109,8 +109,8 @@
     truffle-privatekey-provider "0.0.5"
 
 "@aragon/os@^3.0.2", "@aragon/os@^3.0.8", "@aragon/os@^3.1.1", "@aragon/os@^3.1.2":
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/@aragon/os/-/os-3.1.7.tgz#ef1b6c85fc0ed09d1255f6f460a492739f403ff9"
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/@aragon/os/-/os-3.1.9.tgz#522de96634275550435f7f91bb2da255c8b2d906"
   dependencies:
     homedir "^0.6.0"
     truffle-hdwallet-provider "0.0.3"
@@ -125,6 +125,10 @@
     "@aragon/apps-vault" "^1.0.0"
     "@aragon/apps-voting" "^1.0.0"
     "@aragon/os" "^3.0.8"
+
+"@aragon/test-helpers@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@aragon/test-helpers/-/test-helpers-1.0.0.tgz#14833f6ce06a11e58345e0d0026a1b0e4221a3e7"
 
 "@aragon/ui@^0.11.0":
   version "0.11.0"
@@ -365,7 +369,7 @@ async-eventemitter@^0.2.2:
   dependencies:
     async "^2.4.0"
 
-"async-eventemitter@github:ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c":
+async-eventemitter@ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c:
   version "0.2.3"
   resolved "https://codeload.github.com/ahultgren/async-eventemitter/tar.gz/fa06e39e56786ba541c180061dbf2c0a5bbf951c"
   dependencies:
@@ -798,12 +802,26 @@ babel-plugin-transform-regenerator@^6.22.0:
   dependencies:
     regenerator-transform "^0.10.0"
 
+babel-plugin-transform-runtime@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
+  dependencies:
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-strict-mode@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.24.1.tgz#d5faf7aa578a65bbe591cf5edae04a0c67020758"
   dependencies:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
+
+babel-polyfill@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
+  dependencies:
+    babel-runtime "^6.26.0"
+    core-js "^2.5.0"
+    regenerator-runtime "^0.10.5"
 
 babel-preset-env@^1.3.2, babel-preset-env@^1.6.1:
   version "1.7.0"
@@ -956,8 +974,8 @@ bcrypt-pbkdf@^1.0.0:
     tweetnacl "^0.14.3"
 
 big.js@^5.0.3:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.1.0.tgz#4644831a703f443348f2a7c5aace6248f98374d6"
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.1.1.tgz#039cbcd23ef6190c5a0fc93cb224fa6f4fa643ec"
 
 bignumber.js@^4.0.2:
   version "4.1.0"
@@ -975,13 +993,13 @@ bignumber.js@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-7.2.0.tgz#2a477d9dd87d3fedf77b18ad8ba9e373ef275850"
 
+"bignumber.js@git+https://github.com/debris/bignumber.js#master":
+  version "2.0.7"
+  resolved "git+https://github.com/debris/bignumber.js#c7a38de919ed75e6fb6ba38051986e294b328df9"
+
 "bignumber.js@git+https://github.com/debris/bignumber.js.git#94d7146671b9719e00a09c29b01a691bc85048c2":
   version "2.0.7"
   resolved "git+https://github.com/debris/bignumber.js.git#94d7146671b9719e00a09c29b01a691bc85048c2"
-
-"bignumber.js@git+https://github.com/debris/bignumber.js.git#master":
-  version "2.0.7"
-  resolved "git+https://github.com/debris/bignumber.js.git#c7a38de919ed75e6fb6ba38051986e294b328df9"
 
 "bignumber.js@git+https://github.com/frozeman/bignumber.js-nolookahead.git":
   version "2.0.7"
@@ -1387,8 +1405,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000844"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000844.tgz#bca5798cda2b6931d68100c2d69e55fb338cbb41"
+  version "1.0.30000845"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000845.tgz#296a9064a849b76cf6d7be132c1852c5b55f3718"
 
 caniuse-lite@^1.0.30000844:
   version "1.0.30000844"
@@ -2229,8 +2247,8 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.47:
-  version "1.3.47"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.47.tgz#764e887ca9104d01a0ac8eabee7dfc0e2ce14104"
+  version "1.3.48"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.48.tgz#d3b0d8593814044e092ece2108fc3ac9aea4b900"
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -4687,11 +4705,11 @@ minimist@^1.1.3, minimist@^1.2.0, minimist@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
-minipass@^2.2.1, minipass@^2.2.4:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.3.2.tgz#2bb00e836f1f8d44573f96b08c4f440b330072e4"
+minipass@^2.2.1, minipass@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.3.3.tgz#a7dcc8b7b833f5d368759cce544dccb55f50f233"
   dependencies:
-    safe-buffer "^5.1.1"
+    safe-buffer "^5.1.2"
     yallist "^3.0.0"
 
 minizlib@^1.1.0:
@@ -5902,13 +5920,17 @@ punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
 
-punycode@2.1.0, punycode@^2.1.0:
+punycode@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
 punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
+
+punycode@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
 
 q@^1.1.2:
   version "1.5.1"
@@ -6021,8 +6043,8 @@ react-display-name@^0.2.3:
   resolved "https://registry.yarnpkg.com/react-display-name/-/react-display-name-0.2.4.tgz#e2a670b81d79a2204335510c01246f4c92ff12cf"
 
 react-dom@^16.3.2:
-  version "16.3.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.0.tgz#099f067dd5827ce36a29eaf9a6cdc7cbf6216b1e"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6030,8 +6052,8 @@ react-dom@^16.3.2:
     prop-types "^15.6.0"
 
 react-is@^16.3.1:
-  version "16.3.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.3.2.tgz#f4d3d0e2f5fbb6ac46450641eb2e25bf05d36b22"
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
 
 react-motion@^0.5.2:
   version "0.5.2"
@@ -6046,8 +6068,8 @@ react-onclickout@^2.0.8:
   resolved "https://registry.yarnpkg.com/react-onclickout/-/react-onclickout-2.0.8.tgz#d178b13fb87a481356761b454aa60df7069b2da4"
 
 react@^16.3.2:
-  version "16.3.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.0.tgz#402c2db83335336fba1962c08b98c6272617d585"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6125,6 +6147,10 @@ reduce-function-call@^1.0.1:
 regenerate@^1.2.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
+
+regenerator-runtime@^0.10.5:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
@@ -6296,8 +6322,8 @@ rustbn.js@~0.1.1:
   resolved "https://registry.yarnpkg.com/rustbn.js/-/rustbn.js-0.1.2.tgz#979fa0f9562216dd667c9d2cd179ae5d13830eff"
 
 rxjs@^5.4.2, rxjs@^5.5.6:
-  version "5.5.10"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
+  version "5.5.11"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
     symbol-observable "1.0.1"
 
@@ -6997,12 +7023,12 @@ tar@^2.1.1:
     inherits "2"
 
 tar@^4:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.2.tgz#60685211ba46b38847b1ae7ee1a24d744a2cd462"
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.3.tgz#d6bd509dc7f6b5a5d2c13aa0f7d57b03269b8376"
   dependencies:
     chownr "^1.0.1"
     fs-minipass "^1.2.5"
-    minipass "^2.2.4"
+    minipass "^2.3.3"
     minizlib "^1.1.0"
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
@@ -7165,8 +7191,8 @@ truffle-privatekey-provider@0.0.6:
     web3-provider-engine "^8.4.0"
 
 truffle@^4.0.5, truffle@^4.1.8:
-  version "4.1.9"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-4.1.9.tgz#109a4428098cf32f5e7a84b2de32662f59296b21"
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-4.1.11.tgz#a4df812ebf4a564892900c4a1dac1131104a0799"
   dependencies:
     mocha "^4.1.0"
     original-require "^1.0.1"

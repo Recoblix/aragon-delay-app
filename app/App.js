@@ -8,6 +8,7 @@ import {
 } from '@aragon/ui'
 import Aragon, { providers } from '@aragon/client'
 import styled from 'styled-components'
+import ActionsTable from './ActionTable'
 
 const AppContainer = styled(AragonApp)`
   display: flex;
@@ -22,7 +23,9 @@ export default class App extends React.Component {
     this.app = new Aragon(
       new providers.WindowMessage(window.parent)
     )
-    this.state = {}
+    this.state = {
+      actions: []
+    }
     // ugly hack: aragon.js doesn't have handshakes yet
     // the wrapper is sending a message to the app before the app's ready to handle it
     // the iframe needs some time to set itself up,
@@ -32,16 +35,21 @@ export default class App extends React.Component {
     }, 5000)
   }
 
+  onInitiateAction(actionId){
+    this.app.activate(actionId)
+  }
+
   render () {
-    console.log(this.app.increment)
+    const {
+      actions,
+    } = this.state
 
     return (
       <AppContainer>
-        <div>
-          <ObservedCount observable={this.state.state$} />
-          <Button onClick={() => this.app.decrement(1)}>Decrement</Button>
-          <Button onClick={() => this.app.increment(1)}>Increment</Button>
-        </div>
+        <ActionsTable
+          actions={actions}
+          onInitiateAction={this.onInitiateAction}
+        />
       </AppContainer>
     )
   }
@@ -49,7 +57,7 @@ export default class App extends React.Component {
 
 const ObservedCount = observe(
   (state$) => state$,
-  { count: 0 }
+  { actions: [] }
 )(
   ({ count }) => <Text.Block style={{ textAlign: 'center' }} size='xxlarge'>{count}</Text.Block>
 )

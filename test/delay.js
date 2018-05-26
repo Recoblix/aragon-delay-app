@@ -48,6 +48,7 @@ contract('Delay App', accounts => {
 
         await acl.createPermission(ANY_ADDR, app.address, await app.INITIATE_ROLE(), root, { from: root })
         await acl.createPermission(ANY_ADDR, app.address, await app.ACTIVATE_ROLE(), root, { from: root })
+        await acl.createPermission(ANY_ADDR, app.address, await app.CANCEL_ROLE(), root, { from: root })
     })
 
     context('withoutDelay', () => {
@@ -95,4 +96,23 @@ contract('Delay App', accounts => {
         })
     })
 
+    context('cancel', () => {
+        const account = accounts[0]
+
+        beforeEach(async () => {
+            await app.initialize(0)
+
+            executionTarget = await ExecutionTarget.new()
+        })
+
+        it('cannot activate canceled action', async () => {
+            const action = { to: executionTarget.address, calldata: executionTarget.contract.execute.getData() }
+            const script = encodeCallScript([action])
+            const actionId = createdActionId(await app.forward(script, { from: account }))
+            await app.cancel(actionId, { from: account })
+            return assertRevert(async () => {
+                await app.activate(actionId, { from: account })
+            })
+        })
+    })
 })
