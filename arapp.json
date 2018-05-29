@@ -1,6 +1,6 @@
 {
-  "appName": "delay6.aragonpm.eth",
-  "version": "3.0.0",
+  "appName": "delay.aragonpm.eth",
+  "version": "1.0.0",
   "roles": [
     {
       "name": "Initiate actions",
@@ -10,6 +10,11 @@
     {
       "name": "Activate actions",
       "id": "ACTIVATE_ROLE",
+      "params": []
+    },
+    {
+      "name": "Cancel actions",
+      "id": "CANCEL_ROLE",
       "params": []
     }
   ],

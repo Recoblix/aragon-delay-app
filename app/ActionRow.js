@@ -5,29 +5,20 @@ import { Button, Countdown, TableCell, TableRow } from '@aragon/ui'
 class ActionRow extends React.Component {
 
   initiateActionClick() {
+    console.logs(this.props)
     this.props.onInitiateAction(this.props.action.actionId)
   }
   render() {
-    const { action } = this.props
-    const { endDate, open } = action
-    const { metadata: question, description, nay, yea } = action.data
+    const { action, onInitiateAction } = this.props
+    //const { metadata: question, description } = action.data
 
     return (
       <TableRow>
-        <QuestionCell>
-          <div>
-            {question && (
-              <QuestionWrapper>
-                {description ? <strong>{question}</strong> : question}
-              </QuestionWrapper>
-            )}
-            {description && (
-              <DescriptionWrapper>{description}</DescriptionWrapper>
-            )}
-          </div>
-        </QuestionCell>
+        <div>
+           {action.actionId}
+        </div>
         <ActionsCell>
-          <Button mode="outline" onClick={this.initiateActionClick}>
+          <Button mode="outline" onClick={() => onInitiateAction(action.actionId)}>
             Initiate Action
           </Button>
         </ActionsCell>

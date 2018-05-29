@@ -23,9 +23,7 @@ export default class App extends React.Component {
     this.app = new Aragon(
       new providers.WindowMessage(window.parent)
     )
-    this.state = {
-      actions: []
-    }
+    this.state = {}
     // ugly hack: aragon.js doesn't have handshakes yet
     // the wrapper is sending a message to the app before the app's ready to handle it
     // the iframe needs some time to set itself up,
@@ -36,28 +34,38 @@ export default class App extends React.Component {
   }
 
   onInitiateAction(actionId){
+    console.log(actionId)
     this.app.activate(actionId)
   }
 
+
   render () {
-    const {
-      actions,
-    } = this.state
+    console.log(this.app.increment)
 
     return (
       <AppContainer>
-        <ActionsTable
-          actions={actions}
-          onInitiateAction={this.onInitiateAction}
-        />
+        <div>
+          <Observed
+            observable={this.state.state$}
+            onInitiateAction={id => this.app.activate(id)}
+          />
+        </div>
       </AppContainer>
     )
   }
 }
 
-const ObservedCount = observe(
+const ReceivingComponent = ({ actions, onInitiateAction }) => {
+  console.log(actions)
+  return (
+    <ActionsTable
+      actions={actions}
+      onInitiateAction={onInitiateAction}
+    />
+  )
+}
+
+const Observed = observe(
   (state$) => state$,
   { actions: [] }
-)(
-  ({ count }) => <Text.Block style={{ textAlign: 'center' }} size='xxlarge'>{count}</Text.Block>
-)
+)(ReceivingComponent)

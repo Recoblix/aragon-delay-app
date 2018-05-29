@@ -13,14 +13,6 @@ const ActionsTable = ({ actions, onInitiateAction }) => (
     }
   >
     {actions
-      .sort(
-        (
-          { data: { startDate: startDateLeft } },
-          { data: { startDate: startDateRight } }
-        ) =>
-          // Sort by date descending
-          compareDesc(startDateLeft, startDateRight)
-      )
       .map(action => (
         <ActionRow key={action.actionId} action={action} onInitiateAction={onInitiateAction} />
       ))}
